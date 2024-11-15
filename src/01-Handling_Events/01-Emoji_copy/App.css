@@ -1,0 +1,26 @@
+* {
+  font-size: 1.3rem;
+}
+
+h1 {
+  font-size: 5.75rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.list li {
+  font-size: 2.75rem;
+}
