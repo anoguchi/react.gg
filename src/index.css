@@ -8,6 +8,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #242424;
+  --coal: #0f0d0e;
+  --charcoal: #231f20;
+  --charcoal-10: rgba(35, 31, 32, 0.1);
+  --charcoal-50: rgba(35, 31, 32, 0.5);
+  --gray: #262522;
+  --yellow: #fcba28;
+  --pink: #f38ba3;
+  --green: #0ba95b;
+  --purple: #7b5ea7;
+  --beige-body: #fffbe3;
+  --beige: #f9f4da;
+  --beige-10: rgba(249, 244, 218, 0.1);
+  --beige-50: rgba(249, 244, 218, 0.5);
+  --blue: #12b5e5;
+  --orange: #fc7428;
+  --red: #ed203d;
+  --bg: var(--coal);
+  --color: var(--beige);
+  --accent: var(--yellow);
+  --color-inverse: var(--charcoal);
 }
 
 /*

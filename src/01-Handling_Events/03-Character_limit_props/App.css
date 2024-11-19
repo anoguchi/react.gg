@@ -1,0 +1,14 @@
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+input {
+  appearance: none;
+  border: 1px solid snow;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 10px;
+  color: snow;
+  width: 100%;
+}
