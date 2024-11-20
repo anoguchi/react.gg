@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: snow;
+  color: var(--biege);
+}
+
+#root {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+}
+
+div > p {
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+button {
+  appearance: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--yellow);
+  border: none;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.8;
+}
+
+.container {
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  height: 100%;
+}
+
+/* Your CSS goes here */
+
+img {
+  width: 200px;
+  border-radius: 50%;
+}
+
+h4 {
+  margin: 5px;
+}
+
+p {
+  margin: 5px;
+}
+
+ul {
+  padding-top: 120px;
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+}
+
+li,
+#root > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  line-height: 1;
+  font-size: 16px;
+  background-color: var(--charcoal);
+  padding: 16px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+label > div {
+  position: relative;
+  height: 24px;
+}
+
+label > div > span {
+  background-color: var(--biege-10);
+  border: 1px solid var(--biege);
+  border-radius: 50%;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  top: -2;
+  width: 24px;
+  height: 24px;
+}
+
+label > div > span:after {
+  border: 2px solid var(--biege);
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 5px;
+  opacity: 0;
+  position: absolute;
+  top: 6px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+label > div > input[type="checkbox"] {
+  visibility: hidden;
+}
+
+label > div > input:checked + span {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+label > div > input:checked + span:after {
+  opacity: 1;
+}
+
+label:has(input:checked) > span {
+  text-decoration: line-through;
+  opacity: 0.25;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--yellow);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0;
+  text-transform: none;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+input[type="text"] {
+  appearance: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: var(--biege);
+  outline: none;
+  font-size: 16px;
+  line-height: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  padding-left: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 4px;
+}
+
+.todo-composer {
+  background-color: var(--coal);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.link.danger {
+  color: var(--red);
+}
+
+ul > li > div {
+  display: flex;
+  gap: 8px;
+}
