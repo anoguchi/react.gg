@@ -1,0 +1,96 @@
+main {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 50px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: grid;
+  gap: 16px;
+}
+
+input {
+  appearance: none;
+  border: 1px solid rgba(249, 244, 218, 0.2);
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 10px;
+  color: var(--color);
+  width: 100%;
+}
+
+span {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.error {
+  color: var(--red);
+}
+
+.no-error {
+  color: var(--beige);
+}
+
+button {
+  width: 100%;
+}
+
+button,
+.btn {
+  appearance: none;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+button.primary,
+.btn.primary {
+  background: var(--accent);
+  color: #231f20;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+button:not(:disabled):hover,
+.btn:not(:disabled):hover {
+  opacity: 0.8;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: block;
+}
+progress {
+  accent-color: var(--yellow);
+  width: 100%;
+}
+
+button.secondary,
+.btn.secondary {
+  background: #231f20;
+  color: #fcba28;
+}
+
+button.link,
+.btn.link {
+  appearance: none;
+  background: transparent;
+  color: var(--accent);
+  padding: 10px;
+  text-decoration: underline;
+  display: inline-block;
+}
