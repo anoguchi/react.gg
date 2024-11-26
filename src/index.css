@@ -7,7 +7,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #242424;
   --coal: #0f0d0e;
   --charcoal: #231f20;
   --charcoal-10: rgba(35, 31, 32, 0.1);
