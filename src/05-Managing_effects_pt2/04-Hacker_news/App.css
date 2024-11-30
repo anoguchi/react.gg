@@ -151,46 +151,58 @@ a {
   color: var(--yellow);
   font-weight: 600;
 }
-
-/* Your CSS goes here */
-
-header {
-  margin-bottom: 24px;
-  position: relative;
-}
-
-header > div {
+form {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+form div:has(input) {
+  width: 100%;
+}
+
+section {
+  margin-top: 40px;
+}
+
+section header {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-table {
-  font-size: 14px;
-  font-family: monospace;
-  position: relative;
+h2 {
+  margin: 0;
+  display: flex;
+}
+
+h2 span {
+  margin-right: 10px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  padding-left: 0;
+  list-style-type: none;
   width: 100%;
-  border: 1px solid var(--charcoal);
+  display: flex;
 }
 
-thead th:not(:first-child) {
+li span {
+  margin-right: 3px;
+  width: 8%;
+  max-width: 50px;
+  display: inline-block;
   text-align: left;
+  font-family: monospace;
+  font-size: 1.2rem;
 }
 
-th,
-td {
-  padding: 4px 8px;
-}
-
-th {
-  background: var(--charcoal);
-}
-
-td {
-  border: 1px solid var(--charcoal);
-  width: 100%;
-}
-
-td:first-child {
-  width: 20%;
+li a {
+  font-weight: 400;
+  display: inline-block;
+  width: 92%;
 }

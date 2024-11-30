@@ -25,10 +25,10 @@
   --black: var(--coal);
   --bg: var(--coal);
   --bg-alt: var(--charcoal);
-  --color: var(--beige);
-  --color-muted: var(--beige-50);
+  --color: var(--biege);
   --color-inverse: var(--charcoal);
-  --border-color: var(--beige-10);
+  --border-color: rgba(249, 244, 218, 0.2);
+  --color-muted: rgba(249, 244, 218, 0.5);
   --accent: var(--yellow);
 }
 
