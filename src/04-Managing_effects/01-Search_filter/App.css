@@ -1,0 +1,20 @@
+body {
+  background: #000;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 50px;
+}
+
+input:not([type="checkbox"]) {
+  appearance: none;
+  border: 1px solid rgba(249, 244, 218, 0.2);
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 10px;
+  color: var(--color);
+  width: 100%;
+  margin: 1rem 0;
+}

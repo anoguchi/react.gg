@@ -7,26 +7,29 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --gray-light: #1b1d23;
+  --gray-dark: #131519;
+  --gray-darkest: #0d0f11;
   --coal: #0f0d0e;
   --charcoal: #231f20;
-  --charcoal-10: rgba(35, 31, 32, 0.1);
-  --charcoal-50: rgba(35, 31, 32, 0.5);
   --gray: #262522;
   --yellow: #fcba28;
   --pink: #f38ba3;
   --green: #0ba95b;
   --purple: #7b5ea7;
-  --biege-body: #fffbe3;
   --biege: #f9f4da;
-  --biege-10: rgba(249, 244, 218, 0.1);
-  --biege-50: rgba(249, 244, 218, 0.5);
   --blue: #12b5e5;
   --orange: #fc7428;
   --red: #ed203d;
+  --white: #fff;
+  --black: var(--coal);
   --bg: var(--coal);
+  --bg-alt: var(--charcoal);
   --color: var(--beige);
-  --accent: var(--yellow);
+  --color-muted: var(--beige-50);
   --color-inverse: var(--charcoal);
+  --border-color: var(--beige-10);
+  --accent: var(--yellow);
 }
 
 /*
@@ -79,10 +82,6 @@ h6 {
 * {
   box-sizing: border-box;
   line-height: 1.5;
-}
-
-ul {
-  list-style-type: none;
 }
 
 html {
