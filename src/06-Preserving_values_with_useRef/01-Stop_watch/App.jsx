@@ -1,20 +1,22 @@
+import "./App.css";
 import * as React from "react";
 import { formatTime } from "./utils";
 
 export default function Stopwatch() {
   const [seconds, setSeconds] = React.useState(0);
   const [running, setRunning] = React.useState(false);
-  let id = null;
+  const [id, setId] = React.useState(null);
 
   const handleClick = () => {
     if (running === false) {
-      id = window.setInterval(() => {
+      const id = window.setInterval(() => {
         setSeconds((s) => s + 1);
       }, 1000);
+      setId(id);
       setRunning(true);
     } else {
       window.clearInterval(id);
-      id = null;
+      setId(null);
       setRunning(false);
     }
   };

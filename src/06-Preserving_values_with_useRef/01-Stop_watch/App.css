@@ -1,0 +1,155 @@
+* {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--coal);
+  color: var(--biege);
+  font-family: "Outfit", sans-serif;
+}
+
+.dark,
+.light {
+  min-height: 100%;
+}
+
+h1 {
+  font-family: "Paytone One", sans-serif;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+h4 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+}
+
+select {
+  background: var(--charcoal);
+  color: var(--yellow);
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  border: 10px solid var(--charcoal);
+}
+
+select:focus {
+  outline: 1px solid var(--border-color);
+}
+
+button,
+.btn {
+  appearance: none;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+  opacity: 0.85;
+}
+
+button,
+button.primary,
+.btn.primary {
+  background: var(--accent);
+  color: var(--bg-alt);
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+button.secondary,
+.btn.secondary {
+  background: var(--bg-alt);
+  color: var(--accent);
+}
+
+button.link,
+.btn.link {
+  appearance: none;
+  background: transparent;
+  color: var(--accent);
+  padding: 10px;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+button.large,
+.btn.large {
+  font-size: 14px;
+  padding: 16px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 10px;
+  color: var(--color);
+}
+
+input::placeholder {
+  color: var(--color-muted);
+}
+
+input:focus {
+  border-color: var(--color);
+  outline: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 50px;
+}
+
+a {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+main h1 {
+  font-size: 50px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 200px;
+}
