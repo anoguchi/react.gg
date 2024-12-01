@@ -1,0 +1,380 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--biege);
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 24px;
+  margin: 1.1rem 0;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+h4 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+}
+
+select {
+  background: var(--bg-alt);
+  color: var(--accent);
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  border: 10px solid var(--bg-alt);
+}
+
+select:focus {
+  outline: 1px solid var(--border-color);
+}
+
+button,
+.btn {
+  appearance: none;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+button:not(:disabled):hover,
+.btn:not(:disabled):hover {
+  opacity: 0.8;
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:active,
+.btn:active {
+  transform: translateY(1px);
+}
+
+button.primary,
+.btn.primary {
+  background: var(--accent);
+  color: var(--bg-alt);
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+button.secondary,
+.btn.secondary {
+  background: var(--bg-alt);
+  color: var(--accent);
+}
+
+button.link,
+.btn.link {
+  appearance: none;
+  background: transparent;
+  color: var(--accent);
+  padding: 10px;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+button.large,
+.btn.large {
+  font-size: 14px;
+  padding: 16px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input:not([type="checkbox"]) {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 10px;
+  color: var(--color);
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--color-muted);
+}
+
+input:focus {
+  border-color: var(--color);
+  outline: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 50px;
+}
+
+.yellow-border {
+  padding: 0;
+  margin: 0;
+  background: var(--yellow);
+  height: 5px;
+  width: 100%;
+}
+
+a {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+/* Ignore this file. You can put your CSS in the styles.css file */
+
+:root {
+  --gray-light: #1b1d23;
+  --gray-dark: #131519;
+  --gray-darkest: #0d0f11;
+  --coal: #0f0d0e;
+  --charcoal: #231f20;
+  --gray: #262522;
+  --yellow: #fcba28;
+  --pink: #f38ba3;
+  --green: #0ba95b;
+  --purple: #7b5ea7;
+  --beige: #f9f4da;
+  --blue: #12b5e5;
+  --orange: #fc7428;
+  --red: #ed203d;
+  --white: #fff;
+  --black: var(--coal);
+  --accent: var(--yellow);
+  --bg-alt: var(--charcoal);
+  --border-color: rgba(249, 244, 218, 0.2);
+  --color-muted: rgba(249, 244, 218, 0.5);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--beige);
+  font-family: "Outfit", sans-serif;
+}
+
+h1 {
+  font-family: "Paytone One", sans-serif;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+h4 {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0;
+}
+
+select {
+  background: var(--bg-alt);
+  color: var(--accent);
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  border: 10px solid var(--bg-alt);
+}
+
+select:focus {
+  outline: 1px solid var(--border-color);
+}
+
+button,
+.btn {
+  appearance: none;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+button:not(:disabled):hover,
+.btn:not(:disabled):hover {
+  opacity: 0.8;
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:active,
+.btn:active {
+  transform: translateY(1px);
+}
+
+button.primary,
+.btn.primary {
+  background: var(--accent);
+  color: var(--bg-alt);
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+button.secondary,
+.btn.secondary {
+  background: var(--bg-alt);
+  color: var(--accent);
+}
+
+button.link,
+.btn.link {
+  appearance: none;
+  background: transparent;
+  color: var(--accent);
+  padding: 10px;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+button.large,
+.btn.large {
+  font-size: 14px;
+  padding: 16px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input:not([type="checkbox"]) {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 10px;
+  color: var(--color);
+  width: 100%;
+}
+
+input::placeholder {
+  color: var(--color-muted);
+}
+
+input:focus {
+  border-color: var(--color);
+  outline: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 50px;
+}
+
+.yellow-border {
+  padding: 0;
+  margin: 0;
+  background: var(--yellow);
+  height: 5px;
+  width: 100%;
+}
+
+a {
+  color: var(--yellow);
+  font-weight: 600;
+}
+/* Your CSS goes here */
+
+video {
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+article {
+  position: relative;
+  border: 1px solid var(--border-color);
+  padding: 0;
+  border-radius: 8px;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow);
+  color: var(--charcoal);
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+}
