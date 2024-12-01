@@ -5,14 +5,33 @@ import ReactLogo from "./ReactLogo";
 
 export default function App() {
   const [active, setActive] = React.useState(false);
+  const node = React.useRef(null);
+  const animating = React.useRef(false);
+
+  React.useEffect(() => {
+    const checkAnimations = async () => {
+      animating.current = true;
+      const animations = node.current.getAnimations({ subtree: true });
+      const promises = animations.map((animation) => animation.finished);
+      await Promise.all(promises);
+      animating.current = false;
+    };
+
+    checkAnimations();
+  });
 
   const handleToggle = () => {
-    setActive(!active);
+    if (animating.current === false) {
+      setActive(!active);
+    }
   };
 
   return (
     <div className="container">
-      <div className={`diagram ${active ? "react-approach" : "trad-approach"}`}>
+      <div
+        ref={node}
+        className={`diagram ${active ? "react-approach" : "trad-approach"}`}
+      >
         <Diagram />
         <div className="toggle-diagram">
           <input

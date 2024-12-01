@@ -1,33 +1,30 @@
 import * as React from "react";
-import { formatTime } from "./utils";
+import Toolbar from "./Toolbar";
 
-export default function Stopwatch() {
-  const [seconds, setSeconds] = React.useState(0);
-  const [running, setRunning] = React.useState(false);
-  let id = null;
+export default function App() {
+  const white = React.useRef(null);
+  const black = React.useRef(null);
+  const yellow = React.useRef(null);
 
-  const handleClick = () => {
-    if (running === false) {
-      id = window.setInterval(() => {
-        setSeconds((s) => s + 1);
-      }, 1000);
-      setRunning(true);
-    } else {
-      window.clearInterval(id);
-      id = null;
-      setRunning(false);
-    }
+  const handleClick = (type) => {
+    let ref = null;
+
+    if (type === "white") ref = white;
+    if (type === "yellow") ref = yellow;
+    if (type === "black") ref = black;
+
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
   };
 
   return (
-    <main>
-      <h1>{formatTime(seconds)}</h1>
-      <button
-        style={{ background: running === true ? "var(--red)" : "var(--green)" }}
-        onClick={handleClick}
-      >
-        {running === true ? "Stop" : "Start"}
-      </button>
-    </main>
+    <div>
+      <Toolbar handleClick={handleClick} />
+      <div ref={white} className="white" />
+      <div ref={yellow} className="yellow" />
+      <div ref={black} className="black" />
+    </div>
   );
 }
