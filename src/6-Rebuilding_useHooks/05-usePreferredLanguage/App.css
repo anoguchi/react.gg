@@ -1,0 +1,21 @@
+section {
+  text-align: center;
+}
+
+pre,
+time {
+  display: inline-block;
+  background: var(--charcoal);
+  padding: 1px 8px;
+  font-family: monospace;
+  border-radius: 2px;
+}
+
+p {
+  font-size: 14px;
+  margin: 1.1rem 0;
+}
+
+a {
+  color: var(--beige);
+}
