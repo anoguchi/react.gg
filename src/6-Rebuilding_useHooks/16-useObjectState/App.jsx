@@ -1,29 +1,73 @@
 import "./App.css";
-import useCounter from "./useCounter";
+import useObjectState from "./useObjectState";
+
+const initialState = {
+  team: "Utah Jazz",
+  wins: 2138,
+  losses: 1789,
+  championships: 0,
+};
 
 export default function App() {
-  const [count, { increment, decrement, set, reset }] = useCounter(5, {
-    min: 5,
-    max: 10,
-  });
+  const [state, setState] = useObjectState(initialState);
+
+  const handleAddWin = () => {
+    setState({
+      wins: state.wins + 1,
+    });
+  };
+
+  const handleAddLoss = () => {
+    setState({
+      losses: state.losses + 1,
+    });
+  };
+
+  const handleAddChampionship = () => {
+    setState({
+      championships: state.championships + 1,
+    });
+  };
+
+  const handleReset = () => {
+    setState(initialState);
+  };
 
   return (
     <section>
-      <h1>UseCounter</h1>
-      <h6>with optional min / max</h6>
-      <button disabled={count >= 10} className="link" onClick={increment}>
-        Increment
+      <h1>useObjectState</h1>
+
+      <button className="link" onClick={handleAddWin}>
+        Add Win
       </button>
-      <button disabled={count <= 5} className="link" onClick={decrement}>
-        Decrement
+      <button className="link" onClick={handleAddLoss}>
+        Add Loss
       </button>
-      <button className="link" onClick={() => set(6)}>
-        Set to 6
+      <button className="link" onClick={handleAddChampionship}>
+        Add Championship
       </button>
-      <button className="link" onClick={reset}>
+      <button className="link" onClick={handleReset}>
         Reset
       </button>
-      <p>{count}</p>
+
+      <article>
+        <table>
+          <thead>
+            <tr>
+              {Object.keys(state).map((key) => {
+                return <th key={key}>{key}</th>;
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {Object.keys(state).map((key) => {
+                return <td key={key}>{`${state[key]}`}</td>;
+              })}
+            </tr>
+          </tbody>
+        </table>
+      </article>
     </section>
   );
 }

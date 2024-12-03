@@ -1,33 +1,36 @@
+.link {
+  color: var(--beige) !important;
+}
+
 section {
   text-align: center;
+  max-width: 600px;
+  margin: auto;
 }
 
-h6 {
-  font-weight: normal;
-}
-
-p {
-  font-size: 72px;
-  font-weight: bold;
-}
-
-button {
-  display: block;
+table {
+  margin-top: 40px;
+  border: 1px solid var(--charcoal);
   width: 100%;
+  font-family: monospace;
+  font-size: 14px;
 }
 
-@media (min-width: 400px) {
-  button {
-    display: inline-block;
-    width: auto;
-  }
+th {
+  background-color: var(--charcoal);
+  text-transform: uppercase;
+  font-size: 12px;
 }
-button.link,
-.btn.link {
-  color: var(--beige);
+
+th,
+td {
+  border: 1px solid var(--charcoal);
 }
-button:disabled,
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+
+td {
+  padding: 24px;
+}
+
+section article {
+  overflow: auto;
 }
