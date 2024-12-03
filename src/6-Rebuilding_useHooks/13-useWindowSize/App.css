@@ -1,0 +1,33 @@
+section {
+  text-align: center;
+}
+
+h6 {
+  font-weight: normal;
+}
+
+p {
+  font-size: 72px;
+  font-weight: bold;
+}
+
+button {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 400px) {
+  button {
+    display: inline-block;
+    width: auto;
+  }
+}
+button.link,
+.btn.link {
+  color: var(--beige);
+}
+button:disabled,
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
