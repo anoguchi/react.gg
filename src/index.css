@@ -250,7 +250,7 @@ input:focus {
 .container {
   margin: 0 auto;
   max-width: 1100px;
-  /* padding: 50px; */
+  padding: 50px;
 }
 
 .yellow-border {

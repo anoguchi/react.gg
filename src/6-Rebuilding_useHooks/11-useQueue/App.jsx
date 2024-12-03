@@ -1,29 +1,49 @@
 import "./App.css";
-import useCounter from "./useCounter";
+import useQueue from "./useQueue";
+
+function QueueDemo({ first, last, size, queue }) {
+  return (
+    <figure>
+      <article>
+        <p>Front</p>
+        <ul>
+          {queue.map((item, i) => {
+            const isFirst = first === item;
+            const isLast = last === item;
+            if (isFirst) {
+              return <li key={i}>First: {item}</li>;
+            }
+            if (isLast) {
+              return <li key={i}>Last: {item}</li>;
+            }
+            return <li key={i}>Item: {item}</li>;
+          })}
+        </ul>
+        <p>Back</p>
+      </article>
+      <figcaption>{size} items in the queue</figcaption>
+    </figure>
+  );
+}
 
 export default function App() {
-  const [count, { increment, decrement, set, reset }] = useCounter(5, {
-    min: 5,
-    max: 10,
-  });
+  const { add, remove, clear, first, last, size, queue } = useQueue([1, 2, 3]);
 
   return (
-    <section>
-      <h1>UseCounter</h1>
-      <h6>with optional min / max</h6>
-      <button disabled={count >= 10} className="link" onClick={increment}>
-        Increment
-      </button>
-      <button disabled={count <= 5} className="link" onClick={decrement}>
-        Decrement
-      </button>
-      <button className="link" onClick={() => set(6)}>
-        Set to 6
-      </button>
-      <button className="link" onClick={reset}>
-        Reset
-      </button>
-      <p>{count}</p>
-    </section>
+    <div>
+      <header>
+        <h1>UseQueue</h1>
+        <button className="link" onClick={() => add((last || 0) + 1)}>
+          Add
+        </button>
+        <button disabled={size === 0} className="link" onClick={() => remove()}>
+          Remove
+        </button>
+        <button disabled={size === 0} className="link" onClick={() => clear()}>
+          Clear
+        </button>
+      </header>
+      <QueueDemo queue={queue} size={size} first={first} last={last} />
+    </div>
   );
 }
