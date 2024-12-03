@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./6-Rebuilding_useHooks/14-useVisibilityChange/App";
+import App from "./6-Rebuilding_useHooks/15-useList/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

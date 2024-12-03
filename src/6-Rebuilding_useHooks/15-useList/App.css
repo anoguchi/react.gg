@@ -1,14 +1,5 @@
-section {
+header {
   text-align: center;
-}
-
-h6 {
-  font-weight: normal;
-}
-
-p {
-  font-size: 72px;
-  font-weight: bold;
 }
 
 button {
@@ -16,18 +7,81 @@ button {
   width: 100%;
 }
 
+input {
+  padding: 8px;
+  background: var(--coal);
+  border: unset;
+  width: 100%;
+}
+
+input::placeholder {
+  opacity: 0.5;
+}
+
+ul {
+  display: grid;
+  gap: 16px;
+  padding: 0px;
+}
+
+li {
+  background: var(--charcoal);
+  display: block;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+li,
+form {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.button-group button {
+  background: rgba(255, 255, 255, 0.05) !important;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.button-group button:last-child {
+  color: var(--red);
+}
+
+button.link,
+.btn.link {
+  color: var(--beige);
+}
+
+button.primary,
+.btn.primary {
+  background: unset;
+  color: var(--beige);
+}
+
+@media (hover: hover) {
+  .button-group button {
+    opacity: 0;
+  }
+
+  li:hover .button-group button {
+    opacity: 1;
+  }
+}
+
 @media (min-width: 400px) {
   button {
     display: inline-block;
     width: auto;
   }
-}
-button.link,
-.btn.link {
-  color: var(--beige);
-}
-button:disabled,
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
