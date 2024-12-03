@@ -1,0 +1,75 @@
+section {
+  text-align: center;
+}
+
+article div {
+  position: relative;
+  display: inline;
+}
+
+pre {
+  display: inline-flex;
+  padding: 16px;
+  background: var(--charcoal);
+  border-radius: 8px;
+  padding-right: 40px;
+  overflow: auto;
+  margin: auto;
+  position: relative;
+  font-size: 14px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+article button {
+  position: absolute;
+  right: 4px;
+  top: -4px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.4) !important;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+}
+
+pre button:disabled {
+  color: var(--green);
+}
+
+dialog {
+  background-color: var(--purple);
+  color: var(--beige);
+  border: 0;
+  font-size: 14px;
+  text-align: left;
+  padding: 24px;
+  border-radius: 8px;
+  position: fixed;
+  bottom: 24px;
+  animation: animate-in 0.3s ease-in-out;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+dialog h4 {
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+dialog textarea {
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+  width: 100%;
+}
+
+@keyframes animate-in {
+  0% {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

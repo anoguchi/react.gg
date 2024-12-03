@@ -119,6 +119,7 @@ body {
 h1 {
   text-transform: uppercase;
   font-size: clamp(1rem, 2vw, 2rem);
+  margin-bottom: 1.1rem;
 }
 
 h2 {
@@ -224,6 +225,27 @@ input {
 
 input::placeholder {
   color: var(--color-muted);
+}
+
+input,
+textarea {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 10px;
+  color: var(--color);
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: var(--color-muted);
+}
+
+textarea::focus,
+input:focus {
+  border-color: var(--color);
+  outline: none;
 }
 
 input:focus {
