@@ -1,29 +1,21 @@
 import "./App.css";
-import useCounter from "./useCounter";
+import * as React from "react";
+import useContinuousRetry from "./useContinuousRetry";
 
 export default function App() {
-  const [count, { increment, decrement, set, reset }] = useCounter(5, {
-    min: 5,
-    max: 10,
-  });
+  const [count, setCount] = React.useState(0);
+  const hasResolved = useContinuousRetry(() => {
+    console.log("retrying");
+    return count > 10;
+  }, 1000);
 
   return (
     <section>
-      <h1>UseCounter</h1>
-      <h6>with optional min / max</h6>
-      <button disabled={count >= 10} className="link" onClick={increment}>
-        Increment
+      <h1>useContinuousRetry</h1>
+      <button className="primary" onClick={() => setCount(count + 1)}>
+        {count}
       </button>
-      <button disabled={count <= 5} className="link" onClick={decrement}>
-        Decrement
-      </button>
-      <button className="link" onClick={() => set(6)}>
-        Set to 6
-      </button>
-      <button className="link" onClick={reset}>
-        Reset
-      </button>
-      <p>{count}</p>
+      <pre>{JSON.stringify({ hasResolved, count }, null, 2)}</pre>
     </section>
   );
 }
