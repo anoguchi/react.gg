@@ -1,29 +1,36 @@
 import "./App.css";
-import useCounter from "./useCounter";
+import useWindowSize from "./useWindowSize";
+
+function Browser({ size }) {
+  return (
+    <div
+      data-testid="browser"
+      className="browser"
+      style={{ width: size.width / 4, height: size.height / 4 }}
+    />
+  );
+}
 
 export default function App() {
-  const [count, { increment, decrement, set, reset }] = useCounter(5, {
-    min: 5,
-    max: 10,
-  });
+  const size = useWindowSize();
 
   return (
     <section>
-      <h1>UseCounter</h1>
-      <h6>with optional min / max</h6>
-      <button disabled={count >= 10} className="link" onClick={increment}>
-        Increment
-      </button>
-      <button disabled={count <= 5} className="link" onClick={decrement}>
-        Decrement
-      </button>
-      <button className="link" onClick={() => set(6)}>
-        Set to 6
-      </button>
-      <button className="link" onClick={reset}>
-        Reset
-      </button>
-      <p>{count}</p>
+      <h1>useWindowSize</h1>
+      <p>Resize the window</p>
+      <table>
+        <tbody>
+          <tr>
+            <th>width</th>
+            <td>{size.width}</td>
+          </tr>
+          <tr>
+            <th>height</th>
+            <td>{size.height}</td>
+          </tr>
+        </tbody>
+      </table>
+      <Browser size={size} />
     </section>
   );
 }

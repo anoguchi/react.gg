@@ -1,33 +1,68 @@
 section {
   text-align: center;
-}
-
-h6 {
-  font-weight: normal;
+  max-width: 600px;
+  margin: auto;
+  padding: 24px;
 }
 
 p {
-  font-size: 72px;
-  font-weight: bold;
+  margin-bottom: 1.1rem;
 }
 
 button {
-  display: block;
+  margin-bottom: 40px;
+}
+
+table {
+  font-size: 14px;
+  font-family: monospace;
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--charcoal);
+  border-radius: 4px;
+}
+
+th,
+td {
+  padding: 4px 8px;
+}
+
+thead th {
+  padding: 8px;
+}
+
+th {
+  background: var(--charcoal);
+}
+
+td {
+  border: 1px solid var(--charcoal);
   width: 100%;
 }
 
-@media (min-width: 400px) {
-  button {
-    display: inline-block;
-    width: auto;
+tr {
+  animation-name: animateIn;
+  animation-duration: 100ms;
+  animation-delay: calc(var(--delay, 0) * 20ms);
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.browser {
+  border-radius: 5px;
+  border: 3px solid var(--charcoal);
+  margin: 50px auto;
+  height: 50px;
+  width: 50px;
+}
+
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
   }
-}
-button.link,
-.btn.link {
-  color: var(--beige);
-}
-button:disabled,
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+
+  100% {
+    opacity: 1;
+  }
 }
