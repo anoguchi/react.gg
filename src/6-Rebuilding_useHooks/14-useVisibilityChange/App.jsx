@@ -1,29 +1,21 @@
 import "./App.css";
-import useCounter from "./useCounter";
+import * as React from "react";
+import useVisibilityChange from "./useVisibilityChange";
 
 export default function App() {
-  const [count, { increment, decrement, set, reset }] = useCounter(5, {
-    min: 5,
-    max: 10,
-  });
+  const documentVisible = useVisibilityChange();
+  const [tabAwayCount, setTabAwayCount] = React.useState(0);
+
+  React.useEffect(() => {
+    if (documentVisible === false) {
+      setTabAwayCount((c) => c + 1);
+    }
+  }, [documentVisible]);
 
   return (
     <section>
-      <h1>UseCounter</h1>
-      <h6>with optional min / max</h6>
-      <button disabled={count >= 10} className="link" onClick={increment}>
-        Increment
-      </button>
-      <button disabled={count <= 5} className="link" onClick={decrement}>
-        Decrement
-      </button>
-      <button className="link" onClick={() => set(6)}>
-        Set to 6
-      </button>
-      <button className="link" onClick={reset}>
-        Reset
-      </button>
-      <p>{count}</p>
+      <h1>useVisibilityChange</h1>
+      <div>Tab Away Count: {tabAwayCount}</div>
     </section>
   );
 }
