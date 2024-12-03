@@ -3,7 +3,7 @@ body {
   padding: 0;
   min-height: 100vh;
   background: var(--black);
-  color: var(--biege);
+  color: var(--beige);
 }
 
 h1 {
@@ -181,7 +181,7 @@ button:hover {
 
 .tooltip {
   position: fixed;
-  background-color: var(--biege);
+  background-color: var(--beige);
   color: var(--charcoal);
   padding: 12px;
   border-radius: 4px;
@@ -195,7 +195,7 @@ button:hover {
   content: "";
   width: 10px;
   height: 10px;
-  background-color: var(--biege);
+  background-color: var(--beige);
   position: absolute;
   rotate: 45deg;
 }

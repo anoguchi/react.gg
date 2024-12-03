@@ -3,7 +3,7 @@ body {
   padding: 0;
   min-height: 100vh;
   background: var(--black);
-  color: var(--biege);
+  color: var(--beige);
 }
 
 h1 {
@@ -151,7 +151,7 @@ section {
 }
 
 a {
-  color: var(--biege);
+  color: var(--beige);
 }
 
 section {
@@ -161,6 +161,6 @@ section {
 p {
   font-size: 12px;
   max-width: 50ch;
-  color: color-mix(in srgb, var(--charcoal) 50%, var(--biege));
+  color: color-mix(in srgb, var(--charcoal) 50%, var(--beige));
   margin: 20px auto;
 }

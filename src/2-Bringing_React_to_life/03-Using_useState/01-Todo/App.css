@@ -3,7 +3,7 @@ body {
   padding: 0;
   min-height: 100vh;
   background: snow;
-  color: var(--biege);
+  color: var(--beige);
 }
 
 #root {
@@ -122,8 +122,8 @@ label > div {
 }
 
 label > div > span {
-  background-color: var(--biege-10);
-  border: 1px solid var(--biege);
+  background-color: var(--beige-10);
+  border: 1px solid var(--beige);
   border-radius: 50%;
   cursor: pointer;
   left: 0;
@@ -134,7 +134,7 @@ label > div > span {
 }
 
 label > div > span:after {
-  border: 2px solid var(--biege);
+  border: 2px solid var(--beige);
   border-top: none;
   border-right: none;
   content: "";
@@ -187,7 +187,7 @@ input[type="text"] {
   appearance: none;
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
-  color: var(--biege);
+  color: var(--beige);
   outline: none;
   font-size: 16px;
   line-height: 1;

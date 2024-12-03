@@ -3,7 +3,7 @@ body {
   padding: 0;
   min-height: 100vh;
   background: var(--black);
-  color: var(--biege);
+  color: var(--beige);
 }
 
 h1 {
@@ -152,5 +152,5 @@ textarea {
 
 textarea:focus {
   outline: none;
-  border-color: var(--biege);
+  border-color: var(--beige);
 }

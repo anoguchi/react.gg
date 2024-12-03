@@ -3,7 +3,7 @@ body {
   padding: 0;
   min-height: 100vh;
   background: var(--black);
-  color: var(--biege);
+  color: var(--beige);
 }
 
 h1 {
@@ -161,7 +161,7 @@ header {
 }
 
 .link {
-  color: var(--biege) !important;
+  color: var(--beige) !important;
 }
 
 form {
@@ -223,7 +223,7 @@ li div {
   height: 24px;
   padding: 0px;
   border-radius: 50%;
-  border: 1px solid var(--biege);
+  border: 1px solid var(--beige);
   background: transparent;
   position: relative;
 }

@@ -189,16 +189,16 @@ body {
   padding: 0;
   min-height: 100vh;
   background: var(--coal);
-  color: var(--biege);
+  color: var(--beige);
   font-family: "Outfit", sans-serif;
 }
 
 .light {
-  --bg: var(--biege);
-  --bg-alt: var(--biege);
+  --bg: var(--beige);
+  --bg-alt: var(--beige);
   --color: var(--charcoal);
   --color-muted: var(--charcoal-50);
-  --color-inverse: var(--biege);
+  --color-inverse: var(--beige);
   --border-color: var(--charcoal-10);
   --accent: var(--purple);
 }

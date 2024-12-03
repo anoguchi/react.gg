@@ -28,7 +28,7 @@ body button {
     0px 0px 32px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  background: var(--biege);
+  background: var(--beige);
   border: 1px solid var(--color);
   font-size: 16px;
   padding: 0;
@@ -124,11 +124,11 @@ button:active {
   color: var(--yellow);
 }
 .light {
-  --bg: var(--biege);
-  --bg-alt: var(--biege);
+  --bg: var(--beige);
+  --bg-alt: var(--beige);
   --color: var(--charcoal);
   --color-muted: var(--charcoal-50);
-  --color-inverse: var(--biege);
+  --color-inverse: var(--beige);
   --border-color: var(--charcoal-10);
   --accent: var(--purple);
 }

@@ -1,0 +1,13 @@
+section {
+  text-align: center;
+}
+
+pre {
+  margin-top: 32px;
+}
+
+code {
+  background-color: var(--charcoal);
+  padding: 24px;
+  border-radius: 8px;
+}
