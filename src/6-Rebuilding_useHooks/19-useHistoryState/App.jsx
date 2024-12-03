@@ -1,29 +1,61 @@
 import "./App.css";
-import useCounter from "./useCounter";
+import Form from "./Form";
+import useHistoryState from "./useHistoryState";
 
 export default function App() {
-  const [count, { increment, decrement, set, reset }] = useCounter(5, {
-    min: 5,
-    max: 10,
+  const { state, set, undo, redo, clear, canUndo, canRedo } = useHistoryState({
+    items: [],
   });
+
+  const addTodo = (val) => {
+    set({
+      ...state,
+      items: state.items.concat({ id: crypto.randomUUID(), name: val }),
+    });
+  };
+
+  const removeTodo = (id) => {
+    set({
+      ...state,
+      items: state.items.filter((item) => item.id !== id),
+    });
+  };
 
   return (
     <section>
-      <h1>UseCounter</h1>
-      <h6>with optional min / max</h6>
-      <button disabled={count >= 10} className="link" onClick={increment}>
-        Increment
-      </button>
-      <button disabled={count <= 5} className="link" onClick={decrement}>
-        Decrement
-      </button>
-      <button className="link" onClick={() => set(6)}>
-        Set to 6
-      </button>
-      <button className="link" onClick={reset}>
-        Reset
-      </button>
-      <p>{count}</p>
+      <header>
+        <h1>useHistoryState</h1>
+        <div>
+          <button disabled={!canUndo} className="link" onClick={undo}>
+            Undo
+          </button>
+          <button disabled={!canRedo} className="link" onClick={redo}>
+            Redo
+          </button>
+
+          <button
+            disabled={!state.items.length}
+            className="link"
+            onClick={clear}
+          >
+            Clear
+          </button>
+        </div>
+        <Form addItem={addTodo} />
+      </header>
+
+      <ul>
+        {state.items.map((item, index) => {
+          return (
+            <li key={index}>
+              <span>{item.name}</span>
+              <button className="link" onClick={() => removeTodo(item.id)}>
+                Delete
+              </button>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }
