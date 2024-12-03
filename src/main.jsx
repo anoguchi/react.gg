@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./4-Optimizing_React/02-Referential_equality_and_why_it_matters/04-Optimizing_renders/App";
+import App from "./4-Optimizing_React/03-Managing_advanced_effects/02-React_ruler/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
