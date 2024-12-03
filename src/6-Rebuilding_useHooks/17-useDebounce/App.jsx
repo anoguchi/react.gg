@@ -1,29 +1,61 @@
 import "./App.css";
-import useCounter from "./useCounter";
+import * as React from "react";
+import useDebounce from "./useDebounce";
+import searchHackerNews from "./searchHackerNews";
+import SearchResults from "./SearchResults";
 
 export default function App() {
-  const [count, { increment, decrement, set, reset }] = useCounter(5, {
-    min: 5,
-    max: 10,
-  });
+  const [searchTerm, setSearchTerm] = React.useState("js");
+  const [results, setResults] = React.useState([]);
+  const [isSearching, setIsSearching] = React.useState(false);
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    setSearchTerm(formData.get("search"));
+    e.target.reset();
+    e.target.focus();
+  };
+
+  React.useEffect(() => {
+    const searchHN = async () => {
+      let results = [];
+      setIsSearching(true);
+
+      if (debouncedSearchTerm) {
+        const data = await searchHackerNews(debouncedSearchTerm);
+        results = data?.hits || [];
+      }
+
+      setIsSearching(false);
+      setResults(results);
+    };
+
+    searchHN();
+  }, [debouncedSearchTerm]);
 
   return (
     <section>
-      <h1>UseCounter</h1>
-      <h6>with optional min / max</h6>
-      <button disabled={count >= 10} className="link" onClick={increment}>
-        Increment
-      </button>
-      <button disabled={count <= 5} className="link" onClick={decrement}>
-        Decrement
-      </button>
-      <button className="link" onClick={() => set(6)}>
-        Set to 6
-      </button>
-      <button className="link" onClick={reset}>
-        Reset
-      </button>
-      <p>{count}</p>
+      <header>
+        <h1>useDebounce</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            name="search"
+            placeholder="Search HN"
+            style={{ background: "var(--charcoal)" }}
+            onChange={handleChange}
+          />
+          <button className="primary" disabled={isSearching} type="submit">
+            {isSearching ? "..." : "Search"}
+          </button>
+        </form>
+      </header>
+      <SearchResults results={results} />
     </section>
   );
 }
