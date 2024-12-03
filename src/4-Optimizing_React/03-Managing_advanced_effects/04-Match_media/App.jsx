@@ -1,38 +1,39 @@
 import "./App.css";
 import * as React from "react";
+import { phone, desktop } from "./icons";
 
-function ChildComponent({ children, onClick }) {
-  console.count("Child component is rendering...");
-  return <button onClick={onClick}>{children}</button>;
-}
+const query = "only screen and (max-width : 768px)";
 
-const MemoizedChildComponent = React.memo(ChildComponent);
+const subscribe = (callback) => {
+  const matchMedia = window.matchMedia(query);
+  matchMedia.addEventListener("change", callback);
 
-export default function ParentComponent() {
-  const [time, setTime] = React.useState(new Date().toLocaleTimeString());
-  const [count, setCount] = React.useState(0);
+  return () => {
+    matchMedia.removeEventListener("change", callback);
+  };
+};
 
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-    }, 1000);
+const getSnapshot = () => {
+  return window.matchMedia(query).matches;
+};
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
-  const handleIncrementCount = React.useCallback(() => {
-    setCount((count) => count + 1);
-  }, []);
+export default function MatchMedia() {
+  const isMobile = React.useSyncExternalStore(subscribe, getSnapshot);
 
   return (
-    <div>
-      <p>Current time: {time}</p>
-      <p>Count: {count}</p>
-      <MemoizedChildComponent onClick={handleIncrementCount}>
-        Increment Count
-      </MemoizedChildComponent>
-    </div>
+    <section>
+      Resize your browser's window to see changes.
+      <article>
+        <figure className={isMobile ? "active" : ""}>
+          {phone}
+          <figcaption>Is mobile: {`${isMobile}`}</figcaption>
+        </figure>
+
+        <figure className={!isMobile ? "active" : ""}>
+          {desktop}
+          <figcaption>Is larger device: {`${!isMobile}`}</figcaption>
+        </figure>
+      </article>
+    </section>
   );
 }
