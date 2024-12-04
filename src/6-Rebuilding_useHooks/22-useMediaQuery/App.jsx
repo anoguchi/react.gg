@@ -1,61 +1,42 @@
 import "./App.css";
-import Form from "./Form";
-import useHistoryState from "./useHistoryState";
+import useMediaQuery from "./useMediaQuery";
+import { phone, tablet, laptop, desktop } from "./icons";
 
 export default function App() {
-  const { state, set, undo, redo, clear, canUndo, canRedo } = useHistoryState({
-    items: [],
-  });
-
-  const addTodo = (val) => {
-    set({
-      ...state,
-      items: state.items.concat({ id: crypto.randomUUID(), name: val }),
-    });
-  };
-
-  const removeTodo = (id) => {
-    set({
-      ...state,
-      items: state.items.filter((item) => item.id !== id),
-    });
-  };
+  const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+  const isMediumDevice = useMediaQuery(
+    "only screen and (min-width : 769px) and (max-width : 992px)"
+  );
+  const isLargeDevice = useMediaQuery(
+    "only screen and (min-width : 993px) and (max-width : 1200px)"
+  );
+  const isExtraLargeDevice = useMediaQuery(
+    "only screen and (min-width : 1201px)"
+  );
 
   return (
     <section>
-      <header>
-        <h1>useHistoryState</h1>
-        <div>
-          <button disabled={!canUndo} className="link" onClick={undo}>
-            Undo
-          </button>
-          <button disabled={!canRedo} className="link" onClick={redo}>
-            Redo
-          </button>
+      <h1>useMediaQuery</h1>
+      Resize your browser windows to see changes.
+      <article>
+        <figure className={isSmallDevice ? "active" : ""}>
+          {phone}
+          <figcaption>Small</figcaption>
+        </figure>
+        <figure className={isMediumDevice ? "active" : ""}>
+          {tablet}
+          <figcaption>Medium</figcaption>
+        </figure>
 
-          <button
-            disabled={!state.items.length}
-            className="link"
-            onClick={clear}
-          >
-            Clear
-          </button>
-        </div>
-        <Form addItem={addTodo} />
-      </header>
-
-      <ul>
-        {state.items.map((item, index) => {
-          return (
-            <li key={index}>
-              <span>{item.name}</span>
-              <button className="link" onClick={() => removeTodo(item.id)}>
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+        <figure className={isLargeDevice ? "active" : ""}>
+          {laptop}
+          <figcaption>Large</figcaption>
+        </figure>
+        <figure className={isExtraLargeDevice ? "active" : ""}>
+          {desktop}
+          <figcaption>Extra Large</figcaption>
+        </figure>
+      </article>
     </section>
   );
 }
