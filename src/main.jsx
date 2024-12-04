@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./6-Rebuilding_useHooks/37-useLocalStorage/App";
+import App from "./6-Rebuilding_useHooks/38-useSessionStorage/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
