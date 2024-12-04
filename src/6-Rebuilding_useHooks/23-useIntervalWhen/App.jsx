@@ -1,61 +1,28 @@
 import "./App.css";
-import Form from "./Form";
-import useHistoryState from "./useHistoryState";
+import * as React from "react";
+import useIntervalWhen from "./useIntervalWhen";
 
 export default function App() {
-  const { state, set, undo, redo, clear, canUndo, canRedo } = useHistoryState({
-    items: [],
-  });
+  const [count, setCount] = React.useState(0);
+  const [when, setWhen] = React.useState(false);
 
-  const addTodo = (val) => {
-    set({
-      ...state,
-      items: state.items.concat({ id: crypto.randomUUID(), name: val }),
-    });
-  };
-
-  const removeTodo = (id) => {
-    set({
-      ...state,
-      items: state.items.filter((item) => item.id !== id),
-    });
-  };
+  useIntervalWhen(
+    () => {
+      setCount((c) => c + 0.1);
+    },
+    { ms: 100, when, startImmediately: true }
+  );
 
   return (
     <section>
-      <header>
-        <h1>useHistoryState</h1>
-        <div>
-          <button disabled={!canUndo} className="link" onClick={undo}>
-            Undo
-          </button>
-          <button disabled={!canRedo} className="link" onClick={redo}>
-            Redo
-          </button>
-
-          <button
-            disabled={!state.items.length}
-            className="link"
-            onClick={clear}
-          >
-            Clear
-          </button>
-        </div>
-        <Form addItem={addTodo} />
-      </header>
-
-      <ul>
-        {state.items.map((item, index) => {
-          return (
-            <li key={index}>
-              <span>{item.name}</span>
-              <button className="link" onClick={() => removeTodo(item.id)}>
-                Delete
-              </button>
-            </li>
-          );
+      <h1>useIntervalWhen</h1>
+      <button title="Click to toggle the timer" onClick={() => setWhen(!when)}>
+        {count.toLocaleString("en-US", {
+          maximumFractionDigits: 2,
+          minimumFractionDigits: 2,
         })}
-      </ul>
+        <span className="btn link">{when ? "stop" : "start"}</span>
+      </button>
     </section>
   );
 }
