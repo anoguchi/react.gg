@@ -1,61 +1,38 @@
 import "./App.css";
-import Form from "./Form";
-import useHistoryState from "./useHistoryState";
+import * as React from "react";
+import useClickAway from "./useClickAway";
+import { closeIcon } from "./icons";
 
 export default function App() {
-  const { state, set, undo, redo, clear, canUndo, canRedo } = useHistoryState({
-    items: [],
+  const [isOpen, setIsOpen] = React.useState(false);
+  const ref = useClickAway(() => {
+    setIsOpen(false);
   });
 
-  const addTodo = (val) => {
-    set({
-      ...state,
-      items: state.items.concat({ id: crypto.randomUUID(), name: val }),
-    });
-  };
-
-  const removeTodo = (id) => {
-    set({
-      ...state,
-      items: state.items.filter((item) => item.id !== id),
-    });
+  const handleOpenModal = () => {
+    if (isOpen === false) {
+      setIsOpen(true);
+    }
   };
 
   return (
-    <section>
-      <header>
-        <h1>useHistoryState</h1>
-        <div>
-          <button disabled={!canUndo} className="link" onClick={undo}>
-            Undo
-          </button>
-          <button disabled={!canRedo} className="link" onClick={redo}>
-            Redo
-          </button>
-
-          <button
-            disabled={!state.items.length}
-            className="link"
-            onClick={clear}
-          >
-            Clear
-          </button>
-        </div>
-        <Form addItem={addTodo} />
-      </header>
-
-      <ul>
-        {state.items.map((item, index) => {
-          return (
-            <li key={index}>
-              <span>{item.name}</span>
-              <button className="link" onClick={() => removeTodo(item.id)}>
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
+    <>
+      <section>
+        <h1>useClickAway</h1>
+        <button className="link" onClick={handleOpenModal}>
+          Open Modal
+        </button>
+      </section>
+      {isOpen && (
+        <dialog ref={ref}>
+          <button onClick={() => setIsOpen(false)}>{closeIcon}</button>
+          <h2>Modal</h2>
+          <p>
+            Click outside the modal to close (or use the button) whatever you
+            prefer.
+          </p>
+        </dialog>
+      )}
+    </>
   );
 }
