@@ -1,56 +1,65 @@
+/* Your CSS goes here */
+
 section {
   text-align: center;
-  max-width: 500px;
-  padding: 24px;
-  margin: auto;
 }
 
-section div {
-  overflow: auto;
-}
-
-article {
-  border: 1px solid;
-  background: rgba(123, 94, 167, 0.1);
-  border-color: var(--purple);
-  width: 100px;
-  margin: auto;
-
-  transform-origin: center;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-table {
-  border: 1px solid var(--charcoal);
-  font-size: 14px;
-  width: 100%;
-  font-family: monospace;
+h1 {
   margin-top: 40px;
 }
 
-th {
-  background-color: var(--charcoal);
-  padding: 4px;
+section div {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  /* left: -24px; */
+  width: 110px;
 }
 
-td {
-  border: 1px solid var(--charcoal);
+p {
+  font-size: 14px;
+  opacity: 0.5;
 }
 
-.landscape-primary {
-  width: 200px;
-  aspect-ratio: 16/9;
+span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--green);
+  display: inline-flex;
+  animation: pulse 1.75s infinite;
+
+  --color1: rgb(11, 169, 91, 0);
+  --color2: rgb(11, 169, 91, 0.25);
+  --color3: rgb(11, 169, 91, 0.15);
 }
 
-.unknown,
-.portrait-primary {
-  width: 100px;
-  aspect-ratio: 9/16;
+span.idle {
+  animation: none;
+  background-color: var(--yellow);
+  --color1: rgba(252, 186, 40, 0);
+  --color2: rgba(252, 186, 40, 0.25);
+  --color3: rgba(252, 186, 40, 0.15);
 }
 
-.unknown {
-  transform: rotate(var(--angle, 0));
+label {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 24px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0px 0px 0px 0px var(--color1), 0px 0px 0px 0px var(--color1);
+  }
+
+  50% {
+    box-shadow: 0px 0px 0px 5px var(--color2), 0px 0px 0px 10px var(--color3);
+  }
+
+  100% {
+    box-shadow: 0px 0px 0px 0px var(--color1), 0px 0px 0px 0px var(--color1);
+  }
 }

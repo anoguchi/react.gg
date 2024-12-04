@@ -1,31 +1,18 @@
 import "./App.css";
-import useOrientation from "./useOrientation";
+import * as React from "react";
+import useIdle from "./useIdle";
 
 export default function App() {
-  const orientation = useOrientation();
+  const idle = useIdle(5000);
 
   return (
     <section>
-      <h1>useOrientation</h1>
-
-      <article
-        style={{ "--angle": `${orientation.angle}deg` }}
-        className={orientation.type.toLocaleLowerCase()}
-      />
+      <h1>useIdle</h1>
       <div>
-        <table>
-          <tbody>
-            {Object.keys(orientation).map((key) => {
-              return (
-                <tr key={key}>
-                  <th>{key}</th>
-                  <td>{orientation[key]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <span className={idle ? "idle" : ""} />
+        <label>Status: {idle ? "Idle" : "Active"}</label>
       </div>
+      {idle ? <p>Time to move your mouse</p> : <p>Hold still and wait</p>}
     </section>
   );
 }
