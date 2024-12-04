@@ -1,31 +1,25 @@
 import "./App.css";
-import useOrientation from "./useOrientation";
+import * as React from "react";
+import useThrottle from "./useThrottle";
 
 export default function App() {
-  const orientation = useOrientation();
+  const [val, setVal] = React.useState("");
+  const throttledValue = useThrottle(val);
 
   return (
     <section>
-      <h1>useOrientation</h1>
-
-      <article
-        style={{ "--angle": `${orientation.angle}deg` }}
-        className={orientation.type.toLocaleLowerCase()}
+      <h1>useThrottle</h1>
+      <input
+        placeholder="Type some text"
+        style={{ background: "var(--charcoal)" }}
+        type="text"
+        value={val}
+        onChange={(e) => {
+          setVal(e.target.value);
+        }}
       />
-      <div>
-        <table>
-          <tbody>
-            {Object.keys(orientation).map((key) => {
-              return (
-                <tr key={key}>
-                  <th>{key}</th>
-                  <td>{orientation[key]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <p>Val: {val}</p>
+      <p>Throttled: {throttledValue}</p>
     </section>
   );
 }
