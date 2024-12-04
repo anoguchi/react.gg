@@ -1,58 +1,40 @@
 import "./App.css";
-import Form from "./Form";
-import useHistoryState from "./useHistoryState";
+import * as React from "react";
+import useLogger from "./useLogger";
+
+function FirstChild(props) {
+  useLogger(props.name, props);
+
+  return (
+    <li className={props.isActive ? "active" : ""}>
+      <h5>{props.name}</h5>
+      <p>{props.count}</p>
+    </li>
+  );
+}
 
 export default function App() {
-  const { state, set, undo, redo, clear, canUndo, canRedo } = useHistoryState({
-    items: [],
-  });
+  const [count, setCount] = React.useState(0);
 
-  const addTodo = (val) => {
-    set({
-      ...state,
-      items: state.items.concat({ id: crypto.randomUUID(), name: val }),
-    });
-  };
-
-  const removeTodo = (id) => {
-    set({
-      ...state,
-      items: state.items.filter((item) => item.id !== id),
-    });
-  };
+  const handleClick = () => setCount(count + 1);
 
   return (
     <section>
-      <header>
-        <h1>useHistoryState</h1>
-        <div>
-          <button disabled={!canUndo} className="link" onClick={undo}>
-            Undo
-          </button>
-          <button disabled={!canRedo} className="link" onClick={redo}>
-            Redo
-          </button>
-
-          <button
-            disabled={!state.items.length}
-            className="link"
-            onClick={clear}
-          >
-            Clear
-          </button>
-        </div>
-        <Form addItem={addTodo} />
-      </header>
-
+      <h1>useLogger</h1>
+      <h6>(Check the console)</h6>
+      <button className="primary" onClick={handleClick}>
+        Increment Count
+      </button>
       <ul>
-        {state.items.map((item, index) => {
+        {["First", "Second", "Third"].map((item, index) => {
+          const isActive = count % 3 === index;
           return (
-            <li key={index}>
-              <span>{item.name}</span>
-              <button className="link" onClick={() => removeTodo(item.id)}>
-                Delete
-              </button>
-            </li>
+            <FirstChild
+              key={index}
+              name={item}
+              isActive={isActive}
+              count={count}
+            />
           );
         })}
       </ul>

@@ -1,56 +1,48 @@
 section {
-  max-width: 400px;
-  margin: auto;
-}
-
-h1 {
-  margin-top: 40px;
-}
-
-header {
   text-align: center;
-  margin-bottom: 24px;
+  padding: 24px;
 }
 
-.link {
-  color: var(--beige) !important;
+h5 {
+  text-transform: uppercase;
+  font-size: 12px;
+  position: absolute;
+  top: 8px;
 }
 
-form {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 8px;
-  background-color: var(--charcoal);
-  border-radius: 8px;
+h6 {
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
-input {
-  width: 100%;
-  background: var(--charcoal);
-  border: unset;
-}
-
-input::placeholder {
-  color: rgb(249, 244, 218, 0.5);
+p {
+  font-size: 40px;
 }
 
 ul {
   padding: 0;
-  margin: 0;
   display: grid;
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  width: 100%;
+  max-width: 600px;
+  gap: 24px;
+  margin: auto;
+  margin-top: 40px;
 }
 
 li {
+  align-self: center;
+  width: 100%;
+  background: var(--charcoal);
+  aspect-ratio: 4/5;
+  border-radius: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background: var(--purple);
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 14px;
+  position: relative;
+}
+
+li.active {
+  box-shadow: 0px 0px 0px 2px var(--green);
 }
