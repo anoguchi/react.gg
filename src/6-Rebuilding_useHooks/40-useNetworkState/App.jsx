@@ -1,31 +1,25 @@
 import "./App.css";
-import useOrientation from "./useOrientation";
+import useNetworkState from "./useNetworkState";
 
 export default function App() {
-  const orientation = useOrientation();
+  const network = useNetworkState();
 
   return (
     <section>
-      <h1>useOrientation</h1>
+      <h1>useNetworkState</h1>
 
-      <article
-        style={{ "--angle": `${orientation.angle}deg` }}
-        className={orientation.type.toLocaleLowerCase()}
-      />
-      <div>
-        <table>
-          <tbody>
-            {Object.keys(orientation).map((key) => {
-              return (
-                <tr key={key}>
-                  <th>{key}</th>
-                  <td>{orientation[key]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <table>
+        <tbody>
+          {Object.keys(network).map((key) => {
+            return (
+              <tr key={key} className={key}>
+                <th>{key}</th>
+                <td>{`${network[key]}`}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </section>
   );
 }
