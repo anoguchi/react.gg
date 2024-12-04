@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./6-Rebuilding_useHooks/23-useIntervalWhen/App";
+import App from "./6-Rebuilding_useHooks/24-useMouse/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

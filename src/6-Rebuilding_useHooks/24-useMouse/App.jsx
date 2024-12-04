@@ -1,61 +1,25 @@
 import "./App.css";
-import Form from "./Form";
-import useHistoryState from "./useHistoryState";
+import useMouse from "./useMouse";
+import Demo from "./Demo";
 
 export default function App() {
-  const { state, set, undo, redo, clear, canUndo, canRedo } = useHistoryState({
-    items: [],
-  });
+  const [mouse, ref] = useMouse();
 
-  const addTodo = (val) => {
-    set({
-      ...state,
-      items: state.items.concat({ id: crypto.randomUUID(), name: val }),
-    });
-  };
-
-  const removeTodo = (id) => {
-    set({
-      ...state,
-      items: state.items.filter((item) => item.id !== id),
-    });
-  };
+  const xIntersecting = mouse.elementX > 0 && mouse.elementX < 300;
+  const yIntersecting = mouse.elementY > 0 && mouse.elementY < 300;
+  const isIntersecting = xIntersecting && yIntersecting;
 
   return (
     <section>
-      <header>
-        <h1>useHistoryState</h1>
-        <div>
-          <button disabled={!canUndo} className="link" onClick={undo}>
-            Undo
-          </button>
-          <button disabled={!canRedo} className="link" onClick={redo}>
-            Redo
-          </button>
-
-          <button
-            disabled={!state.items.length}
-            className="link"
-            onClick={clear}
-          >
-            Clear
-          </button>
-        </div>
-        <Form addItem={addTodo} />
-      </header>
-
-      <ul>
-        {state.items.map((item, index) => {
-          return (
-            <li key={index}>
-              <span>{item.name}</span>
-              <button className="link" onClick={() => removeTodo(item.id)}>
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <h1>useMouse</h1>
+      <article
+        ref={ref}
+        style={{ width: "300px", height: "300px" }}
+        className={isIntersecting ? "active" : ""}
+      >
+        Use a ref to add coords relative to the element
+      </article>
+      <Demo {...mouse} />
     </section>
   );
 }
