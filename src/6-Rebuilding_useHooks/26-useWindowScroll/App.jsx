@@ -1,61 +1,37 @@
 import "./App.css";
-import Form from "./Form";
-import useHistoryState from "./useHistoryState";
+import useWindowScroll from "./useWindowScroll";
 
 export default function App() {
-  const { state, set, undo, redo, clear, canUndo, canRedo } = useHistoryState({
-    items: [],
-  });
-
-  const addTodo = (val) => {
-    set({
-      ...state,
-      items: state.items.concat({ id: crypto.randomUUID(), name: val }),
-    });
-  };
-
-  const removeTodo = (id) => {
-    set({
-      ...state,
-      items: state.items.filter((item) => item.id !== id),
-    });
-  };
+  const [{ x, y }, scrollTo] = useWindowScroll();
 
   return (
     <section>
       <header>
-        <h1>useHistoryState</h1>
-        <div>
-          <button disabled={!canUndo} className="link" onClick={undo}>
-            Undo
-          </button>
-          <button disabled={!canRedo} className="link" onClick={redo}>
-            Redo
-          </button>
-
-          <button
-            disabled={!state.items.length}
-            className="link"
-            onClick={clear}
-          >
-            Clear
-          </button>
-        </div>
-        <Form addItem={addTodo} />
+        <h1>useWindowScroll</h1>
+        <button className="link" onClick={() => scrollTo(0, 1000)}>
+          Scroll To (0, 1000)
+        </button>
+        <button
+          className="link"
+          onClick={() => scrollTo({ left: 0, top: 2000, behavior: "smooth" })}
+        >
+          Scroll To (0, 2000) (Smoothly)
+        </button>
+        <button
+          className="link"
+          onClick={() => scrollTo({ left: 0, top: 0, behavior: "smooth" })}
+        >
+          Back To The Top
+        </button>
       </header>
 
-      <ul>
-        {state.items.map((item, index) => {
-          return (
-            <li key={index}>
-              <span>{item.name}</span>
-              <button className="link" onClick={() => removeTodo(item.id)}>
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      {new Array(50).fill().map((_, index) => {
+        return <p key={index}>{index}</p>;
+      })}
+      <aside style={{ position: "fixed", bottom: 0, right: 0 }}>
+        Coordinates <span className="x">x: {x}</span>{" "}
+        <span className="y">y: {y}</span>{" "}
+      </aside>
     </section>
   );
 }
