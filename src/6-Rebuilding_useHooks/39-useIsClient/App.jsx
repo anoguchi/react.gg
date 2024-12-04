@@ -1,31 +1,14 @@
 import "./App.css";
-import useOrientation from "./useOrientation";
+import useIsClient from "./useIsClient";
 
 export default function App() {
-  const orientation = useOrientation();
+  const isClient = useIsClient();
 
   return (
     <section>
-      <h1>useOrientation</h1>
-
-      <article
-        style={{ "--angle": `${orientation.angle}deg` }}
-        className={orientation.type.toLocaleLowerCase()}
-      />
-      <div>
-        <table>
-          <tbody>
-            {Object.keys(orientation).map((key) => {
-              return (
-                <tr key={key}>
-                  <th>{key}</th>
-                  <td>{orientation[key]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <h1>useIsClient</h1>
+      <h6>Is Client? </h6>
+      <p>{isClient ? "If you can see this ... you already know" : "No"}</p>
     </section>
   );
 }
