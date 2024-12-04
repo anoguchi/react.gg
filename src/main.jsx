@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./6-Rebuilding_useHooks/35-useCountdown/App";
+import App from "./6-Rebuilding_useHooks/36-useGeolocation/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

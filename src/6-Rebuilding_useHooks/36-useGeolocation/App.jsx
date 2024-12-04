@@ -1,31 +1,26 @@
 import "./App.css";
-import useOrientation from "./useOrientation";
+import useGeolocation from "./useGeolocation";
+import Demo from "./Demo";
+
+function Location() {
+  const state = useGeolocation();
+
+  if (state.loading) {
+    return <p>loading... (you may need to enable permissions)</p>;
+  }
+
+  if (state.error) {
+    return <p>Enable permissions to access your location data</p>;
+  }
+
+  return <Demo state={state} />;
+}
 
 export default function App() {
-  const orientation = useOrientation();
-
   return (
     <section>
-      <h1>useOrientation</h1>
-
-      <article
-        style={{ "--angle": `${orientation.angle}deg` }}
-        className={orientation.type.toLocaleLowerCase()}
-      />
-      <div>
-        <table>
-          <tbody>
-            {Object.keys(orientation).map((key) => {
-              return (
-                <tr key={key}>
-                  <th>{key}</th>
-                  <td>{orientation[key]}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <h1>useGeolocation</h1>
+      <Location />
     </section>
   );
 }
