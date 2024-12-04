@@ -1,56 +1,40 @@
 section {
-  max-width: 400px;
-  margin: auto;
-}
-
-h1 {
-  margin-top: 40px;
-}
-
-header {
   text-align: center;
-  margin-bottom: 24px;
 }
 
-.link {
-  color: var(--beige) !important;
+.heart-outer {
+  display: block;
+  position: absolute;
+  left: -30px;
+  top: -15x;
 }
 
-form {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 8px;
-  background-color: var(--charcoal);
-  border-radius: 8px;
+.heart-outer .heart-inner {
+  display: inline-block;
+  position: relative;
+  background-color: pink;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  transform: rotate(-45deg);
 }
 
-input {
-  width: 100%;
-  background: var(--charcoal);
-  border: unset;
+.heart-outer .heart-inner:before,
+.heart-outer .heart-inner:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
 }
 
-input::placeholder {
-  color: rgb(249, 244, 218, 0.5);
+.heart-outer .heart-inner:before {
+  top: -15px;
+  left: 0;
 }
 
-ul {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 16px;
-}
-
-li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--purple);
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 14px;
+.heart-outer .heart-inner:after {
+  left: 15px;
+  top: 0;
 }
